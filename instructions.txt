@@ -1,0 +1,25 @@
+python3 -m venv virtual 
+#go into virtual env
+pip install djangorestframework
+pip install django-cors-headers
+pip install psycopg2 #needed for postgres connection (if needed)
+
+commands:
+python -m django startproject DjangoAPI
+python manage.py startapp EmployeeApp
+
+
+#create models then
+python manage.py makemigrations EmployeeApp
+
+python manage.py migrate EmployeeApp #add changes to db
+
+
+# add these using sqlite studio
+select * from EmployeeApp_employee;
+select * from EmployeeApp_department;
+
+insert into EmployeeApp_department values (1,'IT');
+insert into EmployeeApp_department values (2,'Supoort');
+
+insert into EmployeeApp_employee values(1,'Bob','IT','2021-12-12','anonymous.png');
